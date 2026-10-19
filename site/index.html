@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ISIT 300 Field Guide Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,560&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <p class="eyebrow">ISIT 300 · Week 7 · type errors</p>
+      <h1>Field guide</h1>
+      <p class="lede">The first 24 Pokémon already load. Search, sort, the card-count badge, Caught, and Look up are new. Ten lines in that new code fail the TypeScript check. Fix them in <code>site/app.ts</code>.</p>
+    </header>
+
+    <main>
+      <section class="panel" aria-labelledby="list-heading">
+        <div class="list-header">
+          <h2 id="list-heading">First 24</h2>
+          <div class="list-actions">
+            <p id="tone" class="tone"></p>
+            <p id="count" class="count">0 shown</p>
+            <button type="button" id="load-button" class="btn primary">Reload</button>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <label class="field">
+            Search
+            <input id="search" type="search" placeholder="Filter by name" autocomplete="off">
+          </label>
+          <label class="field">
+            Sort
+            <select id="sort">
+              <option value="id">Number</option>
+              <option value="name">Name</option>
+            </select>
+          </label>
+          <label class="field">
+            Nickname
+            <input id="nickname" type="text" placeholder="Optional, then Caught" maxlength="24" autocomplete="off">
+          </label>
+          <button type="button" id="lookup-button" class="btn secondary">Look up</button>
+        </div>
+
+        <p id="match" class="match" hidden></p>
+        <p id="status" class="status" role="status">Loading the first 24 Pokémon…</p>
+        <p id="empty" class="empty" hidden>No entries yet.</p>
+
+        <section id="spotlight" class="spotlight" hidden>
+          <p class="eyebrow">Looked up</p>
+          <p id="spotlight-number" class="number"></p>
+          <h3 id="spotlight-name"></h3>
+          <p id="spotlight-summary" class="spotlight-line"></p>
+          <p id="spotlight-measure" class="spotlight-line"></p>
+          <p id="spotlight-hp" class="spotlight-line"></p>
+          <p id="spotlight-nickname" class="spotlight-line" hidden></p>
+        </section>
+
+        <ul id="pokedex" class="grid"></ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Data from <a href="https://pokeapi.co/docs/v2">PokéAPI</a> · LocalStorage keys <code>isit300-pokemon</code> and <code>isit300-pokemon-caught</code> · <a href="http://localhost:8088">http://localhost:8088</a></p>
+    </footer>
+  </div>
+
+  <!-- Bun transpiles this TypeScript file and sends JavaScript to the browser. -->
+  <script type="module" src="./app.ts"></script>
+</body>
+</html>

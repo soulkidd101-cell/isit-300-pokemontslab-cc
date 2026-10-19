@@ -1,0 +1,13 @@
+# Week 7 assignment — field guide plus ten TypeScript errors.
+# Port 8088 so the finished demo can stay on http://localhost:8087.
+# Image: https://hub.docker.com/r/oven/bun
+
+services:
+  web:
+    image: oven/bun:1
+    working_dir: /app
+    command: ["bun", "server.ts"]
+    ports:
+      - "8088:3000"
+    volumes:
+      - .:/app
